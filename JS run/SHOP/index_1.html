@@ -1,0 +1,42 @@
+
+<script>  
+
+    // 1. DATA
+    const productNameSamsung = "Samsung XXII" // String
+    const productPriseSamsung = 1000.50       // Number (float)
+    const productNameApple = "Apple XV"
+    const productPriseApple = 5000.25
+
+    // 2. CATALOG   
+    let qSamsung = +prompt(
+        "CATALOG" + "\n" + "---------------------------" + "\n" + 
+        productNameSamsung + "\n" 
+        + 
+        productPriseSamsung + "\n"
+        +
+        "---------------------------"
+    )
+
+    let qApple = +prompt(
+        "CATALOG" + "\n" + "---------------------------" + "\n" + 
+        productNameApple + "\n" 
+        + 
+        productPriseApple + "\n"
+        +
+        "---------------------------"
+    )
+    
+    //3. CALCULUS
+    let totalSamsung = productPriseSamsung * qSamsung
+    let totalApple = productPriseApple * qApple
+
+    // HW2:
+    let total = totalSamsung + totalApple
+
+    alert("Total:" + "\n" + total)
+
+    //4. OUTPUT
+    alert("You order:" + "\n" + productNameSamsung + " " + "x" + " " + qSamsung + "=" + totalSamsung + "\n" + 
+    productNameApple + " " + "x" + " " + qApple + "=" + totalApple)    
+
+</script>

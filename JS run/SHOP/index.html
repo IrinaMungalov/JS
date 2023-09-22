@@ -1,0 +1,51 @@
+<!-- 
+
+    ONLINE SHOP:
+        * layers / fragments
+        * variables
+        * operators
+        * types
+        * io / prompt, alert
+        * string
+
+-->
+
+<script>
+    // ONLINE SHOP main CODE
+
+    // 1. DATA
+    const productName = "Samsung XXII" // String
+    const productPrise = 1000.50       // Number (float)
+
+    // 2. CATALOG
+    //              special character
+    //                    v
+    let q = +prompt(
+        "CATALOG" + "\n" + "---------------------------" + "\n" + 
+        productName + "\n" 
+        + 
+        productPrise + "\n"
+        +
+        "---------------------------"
+    )
+
+    // +"2 --> converts string to number"
+    // alert(typeof q)
+
+
+
+
+
+
+
+
+    //3. CALCULUS
+    let total = productPrise * q
+
+    //4. OUTPUT
+    alert("total:" + " " + total)
+
+    // HW1:
+    alert("You order:" + "\n" + productName + " " + "x" + " " + q + "=" + total)
+
+</script>
