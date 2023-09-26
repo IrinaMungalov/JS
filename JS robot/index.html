@@ -1,0 +1,81 @@
+<style>
+    body {
+        background-color: #333;
+    }
+    #map {
+        /*border: 1px dotted #666;*/
+        width: 500px;
+        height: 50px;        
+    }
+    #robot {
+        /* border: 1px dotted #789;*/
+        width: 50px;
+        height: 50px;             
+    }
+    #corpus {
+        fill: rgb(161, 161, 161);
+    }
+    #launch {
+        fill: rgb(207, 207, 207);
+    } 
+    #controls {
+        text-align: center;
+    }   
+
+</style>
+
+<body>    
+
+    <div id="map">
+
+        <div id="robot">
+            <svg viewBox="0 0 24 24">   
+                <path
+                   d="M 5,3 C 3.8954305,3 3,3.8954305 3,5 V 7 H 5 V 5 h 14 v 2 h 2 V 5 C 21,3.8954305 20.104569,3 19,3 H 5 m 3,4 v 2 h 8 V 7 H 8 M 3,9 v 3 c 0,4.970563 4.0294373,9 9,9 4.970563,0 9,-4.029437 9,-9 V 9 h -2 v 3 c 0,3.865993 -3.134007,7 -7,7 C 8.1340068,19 5,15.865993 5,12 V 9 H 3"
+                   id="corpus"
+                   sodipodi:nodetypes="csccccccsscccccccsssccssscc" />
+                <path
+                   d="m 12,12 c -1.380712,0 -2.5,1.119288 -2.5,2.5 0,1.380712 1.119288,2.5 2.5,2.5 1.380712,0 2.5,-1.119288 2.5,-2.5 C 14.5,13.119288 13.380712,12 12,12 Z"
+                   id="launch" />
+              </svg>
+        </div>
+
+        <script>
+            let robotCoord = 1
+        </script>
+
+        <div id="controls">
+            <button 
+
+                onclick=" 
+
+                    if (robotCoord>1) {              
+                        robotCoord-=10
+                    }
+                    robot.style='transform:translateX('+robotCoord+'px)'                
+                ">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+            </button>
+            <button 
+
+                onclick="
+                
+                    if (robotCoord<450) {
+                        robotCoord+=10
+                    }
+                    robot.style='transform:translateX('+robotCoord+'px)'               
+                ">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+
+</body>
