@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS example adaptive page</title>
+    <style>
+        .title-large {
+            padding: 2em;
+        }
+        .title-small {
+            padding: 0.5em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body 
+    onresize="adapt()" 
+    onload="adapt ()">
+
+    <h1 id="heading">JS example adaptive page</h1>
+
+    <!--
+
+        BROWSER parse DOM
+
+        <element id="identifer"> ~~~~~~~~ variable identifer
+                                            v    ^
+                                            get set attribute
+                                            v    ^
+                                            JS code
+
+    -->
+    
+
+    <script>
+            // script that detects screen size:
+            //     > desktop
+            //     > smartphone
+
+
+            //            else
+            //              v
+            // < ----- smartphone ----
+            //                        \
+            // 300 --------------------x------------------- 1920 --- > viewport width
+            //                         |
+            //                         -------------------- desktop --- >
+            //                        1000 breakpoint          ^
+            //                                               // if {}
+
+
+            function adapt() {
+
+                const BREAKPOINT = 1000
+                let viewportWidth = innerWidth // < ------ browser updates
+
+                if ( viewportWidth >= BREAKPOINT ) {
+                    heading.className = "title-large"
+                    // alert("Desktop")
+                } else {
+                    heading.className = "title-small"
+                    // alert("Smartphone")
+                }
+
+            }
+
+    </script>
+    
+</body>
+</html>

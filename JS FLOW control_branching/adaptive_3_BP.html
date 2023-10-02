@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS example adaptive page</title>
+    <style>
+        .title-large {
+            padding: 2em;
+            color: red;
+        }
+        .title-medium {
+            padding: 1em;
+            color: blue;
+        }
+        .title-small {
+            padding: 0.5em;
+            text-align: center;
+            color: green;
+        }
+        
+    </style>
+</head>
+<body 
+    onresize="adapt()" 
+    onload="adapt ()">
+
+    <h1 id="heading">JS example adaptive page</h1>       
+
+    <script>       
+
+            //       else             else if
+            //         v                 v
+            // <-- smartphone --   -- tablet---
+            //                  \ /             \
+            // 300 ------------- x ------------- x ------------------- 1920 --- > viewport width
+            //                   |               |
+            //                   |               -------------------- desktop --- >
+            //                  800              1200 breakpoint          ^
+            //                                                           if 
+
+
+            function adapt() {
+
+                const BREAKPOINT_DESKTOP = 1200
+                const BREAKPOINT_TABLET = 800
+                let viewportWidth = innerWidth // < ------ browser updates
+
+                if ( viewportWidth >= BREAKPOINT_DESKTOP ) {
+                    heading.className = "title-large"
+                    // alert("Desktop")
+                } else if ( viewportWidth < BREAKPOINT_DESKTOP && viewportWidth >= BREAKPOINT_TABLET ) {
+                    heading.className = "title-medium"
+                    // alert("Tablet")
+                } else {
+                    heading.className = "title-small"
+                    // alert("Smartphone")       
+                }
+
+            }
+
+    </script>
+    
+</body>
+</html>
