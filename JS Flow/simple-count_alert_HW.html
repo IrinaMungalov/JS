@@ -1,0 +1,30 @@
+<script>
+    
+    let result = ''
+    for (let n=1 ; n<=5 ; n++) { 
+
+        result = result + n + "\n"            
+    }
+
+    alert(result)
+
+
+
+//                              ?     false
+// S--x--------x---x----------->x----------------x------------------------->E
+//  result='' n=1  ^          n<=5             alert(result)  <------- OK < USER
+//                 |            |
+//                 |            | true
+//                 |            v
+//                 |            x result = result + n / '12345'
+//                 |            |
+//                 |            |
+//                 |            v
+//                 |            x n++   
+//                 |            |
+//                 |            |
+//                 x------------x
+
+
+</script>
+
