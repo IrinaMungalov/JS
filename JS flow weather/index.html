@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WEATHER APP</title>
+</head>
+<body>
+    <div id="container">
+        <!-- .innerHtml -->
+    </div>
+
+    <script>
+        // weather data
+        let tempC       = 15         // Number
+        let rainy       = false      // Boolean
+        let sunny       = true
+        let geoLocation = "Chisinau" // String
+        let icon = ""
+
+        if ( rainy ) {
+            icon = "weather-showers-scattered-icon.png"
+        }
+        if ( sunny ) {
+            icon = "weather-sunny-icon.png"
+        }
+        
+        // logic - template strings
+        container.innerHTML = `
+            <h2>${geoLocation}</h2>
+            <img src="${icon}"/>
+            temp: ${tempC} ℃
+        `
+
+    </script>
+    
+</body>
+</html>
