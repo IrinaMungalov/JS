@@ -33,3 +33,38 @@ movePlayerRight ( )
         ^
         |
        1. find this one
+
+
+
+
+
+
+
+
+                              -------------> call
+                            /
+button[onclick="movePlayerRight()"]
+button[onclick="movePlayerLeft()"]
+                            \
+                              -------------> call
+
+
+
+
+
+
+
+  >, <, a, w, space... <----- hits a key USER
+    | 
+    event
+    |                if ? -----------> call movePlayerRight()
+    v                  |
+ body[onkeydown="onKey()"]
+                       |
+                     if ? -----------> call movePlayerLeft()
+
+
+
+
+
+                       
