@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS | LOOPS | WHILE | GALLERY</title>
+    <style>
+        img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>        
+
+    <script>
+        
+        for (let n=9; n<=9 && n>=1; n--) {
+            container.innerHTML += `<img src="images/${n}.jpg">`
+            if (n == 4 || n == 7) {                            
+                container.innerHTML += `<br/>`
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
+
+
+
