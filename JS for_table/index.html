@@ -21,14 +21,15 @@
 
         let table = `<table border="1">
                        <tr>`
-        for (let td = 1; td <= 9; td++) {    
-            table += `<td>${td}</td>`
-            if (td == 3 || td == 6) {
-                table += `</tr><tr>`
+        for (let td = 1; td <= 9; td++) {               
+            if (td == 4 || td == 7) {
+                table += `</tr><tr>`;
             } 
+            table += `<td>`;
             if (td == 1 || td == 5 || td == 9) {
-                table += `<td style="background-color: red;"></td>`;
+                table += `<div style="background-color: red;">`;
             }
+            table += `${td}</td>`;
 
         }
 
