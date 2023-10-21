@@ -4,6 +4,13 @@
     <div id="ball"></div>
     <div id="player"></div>
 </div>
+
+<div id="score" 
+     style="color: white;">
+     “What is the score?”: 
+        <div id="scoreBall">0</div>
+</div>
+
 </body>
 
 <style>
@@ -52,6 +59,8 @@
     const BALL_WIDTH = 50
     const intervalTime = 100
 
+    let score = 0;
+
 
     function onKey() {
         switch (event.code) {
@@ -76,12 +85,25 @@
         ballX += ballSpeedX
         ballY += ballSpeedY
         
+        // WALLS
         if ( ballY < -430) {
             ballSpeedY *= -1
         }
         if (ballX > 225 || ballX < -225) {
             ballSpeedX *= -1;
-        }             
+        }  
+        
+        // NEAR PLATER
+        if ( ballY > 0 && ballY < 50
+             && ballX > playerX -20 && ballX < playerX +20
+            ) {
+             ballSpeedY *= -1;
+             score += 1;
+        }
+        if (ballY > 50) {
+            alert(`Oops! You lost :(`)
+            score = 0
+        }        
 
         render()
     }
@@ -89,7 +111,11 @@
     function render () {
         player.style =`transform: translateX(${playerX}px)`
         ball.style   =`
-            transform: translateX(${ballX}px) translateY(${ballY}px)`
+            transform: translateX(${ballX}px) translateY(${ballY}px)`;
+        if (score >= 5) {
+            alert (`Congratulations!!! You have scored 5 points!`)            
+        }
+        scoreBall.innerHTML = score;
     }
     
 
