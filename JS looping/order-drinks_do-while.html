@@ -1,0 +1,33 @@
+<script>
+
+    // DATA
+
+    // provider
+    const drinkCupPrice = 230
+
+    //client
+    let money = 50
+
+
+    // ------------------------
+    // 1. how many cups ?
+    let cups = Math.floor(money / drinkCupPrice)
+    console.log("1. Hmmm, I think I could drink " + cups + " drinks!")
+
+    // 2. first check, then buy
+    // while 
+    console.log("2.")
+
+    do  {
+         console.log(" - i still have money", money, "drink one more")
+         money -= drinkCupPrice
+    } while (money >= drinkCupPrice)
+    console.log("money left", money)
+
+
+
+
+
+
+
+</script>
