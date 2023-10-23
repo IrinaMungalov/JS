@@ -1,0 +1,32 @@
+<div id="result">
+
+</div>
+<script>
+    // HW1:
+    //  Math.random() генерирует случайное число 0...1
+    //  Math.floor() округляет значение до меньшего целого числа (округление вниз)
+    //  Math.ceil() округляет значение до большего целого числа (округление вверх)
+    //  Math.round() округляет значение до близжайшего целого числа (от 0,5 и выше окруление в большую сторону)
+
+    //HW2:
+    let produceNumber = produce()
+
+    function produce () {
+        return Math.ceil(Math.random() * 10)      // Math.ceil округлит до большего числа => до 10
+    }
+    
+
+    let transformeValue = transform(produceNumber)
+
+    function transform (value) {
+        let res = Math.round( value / 2 )         // Math.round - стандартное округление
+        return res
+    }
+
+    // HW3:
+    function consume (n) {
+        result.innerHTML = "n=" + n               // outputs in a div
+    }    
+    
+    consume(transformeValue)
+</script>
