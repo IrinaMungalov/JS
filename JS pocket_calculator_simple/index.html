@@ -1,0 +1,126 @@
+<!--
+
+    POCKET CALCULATOR:
+
+    INPUT process:
+
+        HTML:
+            * semantic / functioanl
+
+        CSS:
+            * box / colors
+
+        JS:
+            * functionak programming
+            * events
+            * DOM
+            * flow control
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>POCKET CALCULATOR</title>
+    <style>
+        body {
+            background-color: #333;
+            font-family: arial;
+            font-size: 25px;
+        }
+        #calculator {
+            border: 1px solid #555;
+            padding: 5px;
+        }   
+        #resScreen {
+            border: 1px solid #555;
+            height: 30px;
+            color: white;
+            padding: 3px;
+            margin-bottom: 5px;
+        }
+        #inputs input {
+            display: block;
+            padding: 10px;
+        }
+        #controls {
+            margin-top: 10px;
+        }
+        #controls button {
+            padding: 20px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="calculator">
+
+        <div id="resScreen">0</div>
+
+        <div id="inputs">
+            <input type="text" id="inputA" placeholder="value A">
+            <input type="text" id="inputB" placeholder="value B">
+        </div>
+
+        <div id="controls">
+            <button onclick="add()">+</button>
+            <button onclick="subtract()">-</button>
+            <button onclick="divide()">/</button>
+            <button onclick="multiply()">*</button>
+        </div>
+
+    </div>
+
+    <script>
+        function add() {
+            let a = parseInt( inputA.value )
+            let b = parseInt( inputB.value )
+
+            if ( Number.isNaN(a) || Number.isNaN(b) ) {
+                resScreen.innerHTML = "error"
+            } else {
+                let res = a + b
+                resScreen.innerHTML = res
+            }
+        }
+
+        function subtract() {
+            let a = parseInt( inputA.value )
+            let b = parseInt( inputB.value )
+
+            if ( Number.isNaN(a) || Number.isNaN(b) ) {
+                resScreen.innerHTML = "error"
+            } else {
+                let res = a - b
+                resScreen.innerHTML = res
+            }
+        }
+
+        function divide() {
+            let a = parseInt( inputA.value )
+            let b = parseInt( inputB.value )
+
+            if ( Number.isNaN(a) || Number.isNaN(b) || b == 0 ) {
+                resScreen.innerHTML = "error"
+            } else {
+                let res = a / b
+                resScreen.innerHTML = res
+            }
+        }
+
+        function multiply() {
+            let a = parseInt( inputA.value )
+            let b = parseInt( inputB.value )
+
+            if ( Number.isNaN(a) || Number.isNaN(b) ) {
+                resScreen.innerHTML = "error"
+            } else {
+                let res = a * b
+                resScreen.innerHTML = res
+            }
+        }
+    </script>
+    
+</body>
+</html>
