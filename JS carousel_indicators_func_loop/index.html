@@ -1,0 +1,58 @@
+<!-- HW4, HW5: -->
+<style>
+    #indicators {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+</style>
+
+<body>
+    
+    <div id="carousel">
+        <!-- ... carousel here -->
+
+        <!--  INDICATORS -->
+        <div id="indicators">
+
+        </div>
+        <!-- //INDICATORS -->
+
+    </div>
+
+    <script>
+
+        let activeN = 2
+
+        const renderIndicators = () => {
+            
+            let html = `<button>❰</button>` // start
+
+            // HW1, HW2: 
+            let n = 3;   // step
+            while (n >= 1) {
+
+            // HW3:
+                let color = (n == activeN) ? "orange" : "black"
+                           
+                html += `<img src="thumbnails/${n}-150x150.jpg" 
+                            style="
+                            border: 5px solid ${color};
+                            margin: 5px;
+                            "/>`
+                n--
+            }
+
+            // end
+            html += `<button onclick="nextSlide()">❱</button>`
+            indicators.innerHTML = html
+            // debugger
+        }
+
+        const nextSlide = () => {
+            activeN++
+            debugger
+        }
+
+    </script>
+</body>
