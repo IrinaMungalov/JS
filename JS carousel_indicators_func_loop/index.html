@@ -1,58 +1,141 @@
-<!-- HW4, HW5: -->
-<style>
-    #indicators {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-</style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-<body>
-    
-    <div id="carousel">
-        <!-- ... carousel here -->
+  </head>
+  
 
-        <!--  INDICATORS -->
-        <div id="indicators">
+    <style>
+        #indicators {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style> 
 
-        </div>
-        <!-- //INDICATORS -->
-
-    </div>
-
-    <script>
-
-        let activeN = 2
-
-        const renderIndicators = () => {
+        <body onload="renderIndicators()">
             
-            let html = `<button>❰</button>` // start
+            <div id="carousel">
+                <!-- ... BOOTSTRAP carousel here -->
 
-            // HW1, HW2: 
-            let n = 3;   // step
-            while (n >= 1) {
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
 
-            // HW3:
-                let color = (n == activeN) ? "orange" : "black"
-                           
-                html += `<img src="thumbnails/${n}-150x150.jpg" 
-                            style="
-                            border: 5px solid ${color};
-                            margin: 5px;
-                            "/>`
-                n--
-            }
+                    <div class="carousel-inner">
+                      <div class="carousel-item ">
+                        <img src="images/1-150x150.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item active">
+                        <img src="images/2-150x150.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="images/3-150x150.jpg" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
 
-            // end
-            html += `<button onclick="nextSlide()">❱</button>`
-            indicators.innerHTML = html
-            // debugger
-        }
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
 
-        const nextSlide = () => {
-            activeN++
-            debugger
-        }
+                <!-- ... /BOOTSTRAP carousel here -->
 
-    </script>
-</body>
+                <!--  INDICATORS -->
+                <div id="indicators" class="container-fluid text-center mt-2 ">
+
+                </div>
+                <!-- //INDICATORS -->
+
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+            <script>
+
+                const MIN_N = 1
+                const MAX_N = 3
+                let activeN = 2
+
+                const renderIndicators = () => {
+                    
+                    let html = `<button class="btn btn-primary btn-lg rounded-pill" onclick="prevSlide()">❰</button>` // start
+                    
+                    let n = MIN_N;   // step
+                    while (n <= MAX_N) {
+                    
+                        let color = (n == activeN) ? "orange" : "black"
+                                
+                        html += `<img src="thumbnails/${n}-150x150.jpg" 
+                                    style="
+                                        border: 5px solid ${color};
+                                        margin: 5px;
+                                    "/>`
+                        n++
+                    }
+
+                    // end
+                    html += `<button class="btn btn-primary btn-lg rounded-pill" onclick="nextSlide()">❱</button>`
+                    indicators.innerHTML = html
+                    // debugger
+                }
+
+                const prevSlide = () => {
+                    activeN = activeN > MIN_N ? activeN - 1 : MAX_N
+
+                    let booN = activeN - 1
+                    let indiB = document.querySelector(`[data-bs-slide-to="${booN}"]`)
+                    indiB.dispatchEvent( new Event("click"))
+                    renderIndicators()            
+                }
+
+                // HW4:
+                //      const prevSlide = () => {
+                //            if (activeN > MIN_N) {
+                //                activeN = activeN - 1
+                //            } else {
+                //                activeN = MAX_N
+                //            }
+                //            renderIndicators()
+                //      }
+
+                const nextSlide = () => {
+                    activeN = activeN < MAX_N ? activeN + 1 : MIN_N
+
+                    // equivalent bootstrap number
+                    let booN = activeN - 1
+
+                    // find the bootstrap indicator by attribute
+                    let indiB = document.querySelector(`[data-bs-slide-to="${booN}"]`)
+
+                    // make a virtual click
+                    indiB.dispatchEvent( new Event("click"))
+                    renderIndicators()            
+                }
+
+                // HW4:
+                //      const nextSlide = () => {
+                //            if (activeN < MAX_N) {
+                //                activeN = activeN + 1
+                //            } else {
+                //                activeN = MIN_N
+                //            }
+                //            renderIndicators()
+                //      }
+
+            </script>
+        </body>
+
+    </html>
