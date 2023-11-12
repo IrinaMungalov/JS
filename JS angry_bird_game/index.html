@@ -1,0 +1,36 @@
+<!--
+    Angry Birds FPS
+        HTML:
+            structure
+            audio / video
+        CSS:
+            box
+            position / absolute
+        JS:
+            funct
+            DOM
+            events
+            flow
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">    
+    <title>Angry Birds FPS</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body onload="initGame()">
+
+    <div id="map" onclick="shoot()">
+        <div id="bird"></div>
+
+    </div>
+
+    <div id="scoreDisplay"></div>
+    
+    <div id="result"></div>
+    <div id="play"></div>
+
+    <script src="game.js"></script>
+</body>
+</html>
