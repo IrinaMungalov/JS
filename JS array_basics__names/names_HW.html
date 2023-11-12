@@ -1,0 +1,27 @@
+
+<div id="container"></div>
+    
+
+<script>
+
+    let names = [
+        "John Doe",
+        "Marry Poppins",
+        "Pete Cork",
+        "Jake Solomon",
+        "Vasilii Sviatoi",
+    ]
+
+    let htmlOlList = `<ol>`
+        
+    for(let i=0; i<5; i++) {
+        htmlOlList += `<li>${names[i]}</li>`
+    }
+
+    htmlOlList += `</ol>`
+
+    container.innerHTML = htmlOlList
+
+</script>
+
+
