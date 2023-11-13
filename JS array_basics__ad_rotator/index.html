@@ -1,0 +1,95 @@
+<!--
+
+    AD ROTATOR:
+
+        HTML: semantics
+        CSS: box & fonts
+        JS:
+            timers
+            functions
+            array
+            DOM
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AD ROTATOR</title>
+    <style>
+        body {
+            background-color: #123;
+        }
+        #ad {
+            border: 1px dotted gray;
+            color: white;
+            padding: 1em;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ad">
+
+        
+
+    </div>
+
+    <script>
+        let adTitles = [
+            "This is the first ad title",  // 0 < adIndex
+            "This is the second ad title", // 1
+            "This is the third ad title",  // 2
+        ]
+        let adTexts = [
+            "text for the first ad",
+            "text for the second ad",
+            "text for the third ad",
+        ]
+        let adImg = [
+            "images/1.jpg",
+            "images/2.jpg",
+            "images/3.jpg",
+        ]
+
+        let adIndex = 0
+
+        //HW1:
+
+        function showAd () {
+            ad.innerHTML = `<h1>${adTitles[adIndex]}</h1>
+                            <p>${adTexts[adIndex]}<p/>
+                            <img src="${adImg[adIndex]}"></img>
+                           `
+        }
+
+        
+        function rotateAds () {
+            /* 
+                [ "T1",  "T2",  "T3" ]
+                                  |
+                   +--------------+
+                   V
+                [ "T3", "T1", "T2",  ]
+            
+            */
+           let lastTitle = adTitles.pop()
+           adTitles.unshift(lastTitle)
+
+           let lastTexts = adTexts.pop()
+           adTexts.unshift(lastTexts)
+
+           let lastImg = adImg.pop()
+           adImg.unshift(lastImg)
+
+
+           showAd()
+        }
+
+        setInterval(rotateAds, 3000)
+        showAd()
+    </script>
+    
+</body>
+</html>
