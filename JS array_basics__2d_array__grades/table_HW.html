@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Таблица матрицы</title>
+    <style>
+        table {            
+            width: 20px;
+            margin: 20px;
+        }
+        table, tr, td {
+            border: 1px solid black;
+        }     
+        tr, td {
+            text-align: center;
+            padding: 5px;            
+        }
+    </style>
+</head>
+<body>
+
+
+    <script>
+
+
+        
+        let matrix = [
+            [-1,  2,  1],
+            [ 1, -2,  1],
+            [-1, -2, -1]
+        ]
+
+        let table = document.createElement("table")
+
+          for (let i = 0; i < matrix.length; i++) {
+            let row = table.insertRow()
+            
+            for (let j = 0; j < matrix[i].length; j++) {                
+                let cell = row.insertCell()                
+                cell.innerHTML = matrix[i][j]
+            }
+        }
+
+        document.body.appendChild( table )
+
+
+
+    </script>
+</body>
+</html>
