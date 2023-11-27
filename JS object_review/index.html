@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REVIEW</title>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    
+    <script>
+
+        let review = {
+            // data
+            userName: "johny",
+            bodyText: "Great book! I've read it 678 times",
+            rating: 2,
+
+            // behavior
+            showRating: function () {
+
+                // HW1: display * -> rating
+
+                let star = ""
+                for(let i=0; i<this.rating; i++) {
+                    star += "*"                
+                }
+
+                return star          
+            },
+            showAsHTML: function () {
+                let stars = this.showRating()
+
+                let html  = `<div class="review">`
+                    html += `<h3>${this.userName}</h3>`
+                    html += `<p>${this.bodyText}</p>`
+                    html += `<p>${stars}</p>`
+                    html += `</div>`
+
+                return html
+            }          
+
+        }
+        let html = review.showAsHTML()
+        container.innerHTML = html
+
+        review.showRating()
+
+    </script>
+</body>
+</html>
