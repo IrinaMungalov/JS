@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LITERAL OBJECT / BUTTON</title>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+
+    let btnA = {
+        // structure
+        text: "Apply",
+        backgroundColor: "black",
+        textColor: "white",
+
+        // behaviour
+        render: function () {
+
+            let html = `<button 
+                            onclick="btnA.clickHandler()"
+                            style="background: ${this.backgroundColor}; color: ${this.textColor}">
+                            ${this.text}
+                        </button>`
+
+            return html
+        },
+        clickHandler() {
+            alert("button was clicked!")
+        }
+    }
+
+    let html = btnA.render()
+    container.innerHTML = html
+
+    </script>
+    
+</body>
+</html>
